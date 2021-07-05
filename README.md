@@ -1,4 +1,4 @@
-# [`mapsf`, a New Package for Thematic Mapping](https://rcarto.github.io/user2021/) <img src="img/logo.png" align="right" alt="" width="120"/>
+## [`mapsf`, a New Package for Thematic Mapping](https://rcarto.github.io/user2021/) <img src="img/logo.png" align="right" alt="" width="120"/>
 
 **Timothée Giraud** - CNRS    
 **[useR! 2021](https://user2021.r-project.org/) - 2019/07/06**  

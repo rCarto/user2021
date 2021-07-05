@@ -10,10 +10,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache=TRUE)
 ```
-
-# Produce publication ready thematic maps 
 
 ## {data-background=img/map2.svg data-background-size=contain}
 
@@ -46,14 +44,23 @@ dev.off()
 ```
 
 
-## Standing on the Shoulders of Giants
+## A minimal number of well-known dependencies
 
-<!-- <img src="img/Rplot.png" width=675px class="center"/>  -->
-deepdep image
+```{r, echo = FALSE, eval = FALSE, results='hide'}
+library(deepdep)
+dep <- deepdep("mapsf", depth = 8)
+png("img/deps.png", width  = 700, height = 550)
+plot_dependencies(dep, "circular", same_level = TRUE, reverse = TRUE)
+dev.off()
 
-## Create a map
+```
+<center>
+<img src="img/deps.png" width=700px class="center"/>
+</center>
 
-mf_map() is the main function of the package
+## `mf_map()`
+
+[`mf_map()`](https://riatelab.github.io/mapsf/reference/mf_map.html) is the main function of the package.
 
 ```r 
 mf_map(x = sf_object, 
@@ -65,16 +72,20 @@ mf_map(x = sf_object,
 ## `mf_map()` {data-background=img/help.png data-background-size=contain}
 
 
-## Map Types
+## Map types
 
-<div class="columns-2">
-  <img src="img/visu1.png" width=518px />
-  
-  <img src="img/visu2.png" width=523px />
-</div>
+<center>
+<img src="img/visu1.png" width=579px />
+</center>
 
 
-## Map Layout
+## Map types
+<center>
+<img src="img/visu2.png" width=511px />
+</center>
+
+
+## Map layout
 <div class="columns-2"> 
 
 <img src="img/deco.svg" width=450px />  
@@ -93,32 +104,7 @@ mf_shadow()
 
 </div>
 
-## https://riatelab.github.io/mapsf/
 
-[<img src="img/website.png" width=800px />](https://riatelab.github.io/mapsf/)
-
-
-## Vignettes
-
-- [Introduction and examples](https://riatelab.github.io/mapsf/articles/mapsf.html#examples-of-thematic-maps-1)
-- [How to Export Maps](https://riatelab.github.io/mapsf/articles/web_only/how_to_export_maps.html)
-- [How to Create Inset Maps](https://riatelab.github.io/mapsf/articles/web_only/how_to_create_inset_maps.html)
-- [How to Use Themes](https://riatelab.github.io/mapsf/articles/web_only/how_to_use_themes.html)
-
-
-## Alternative Solutions
-
-### `ggplot2` (Wickham, 2016) <small>+ [`ggspatial`](https://github.com/paleolimbot/ggspatial) (Dunnington, 2018)</small>  
-* A general purpose graphic library
-
-### [`tmap`](https://github.com/mtennekes/tmap) (Tennekes, 2018)  
-* A mapping library with similar functionalities
-* Uses a different grammar (*à la* `ggplot2`)
-* Allows interactive maps
-
-### [`cartography`](https://github.com/riatelab/cartography) (Giraud and Lambert, 2016)  
-* `mapsf` predecessor
-* In maintenance mode
 
 ## Examples {.smaller}
 
@@ -156,6 +142,38 @@ mf_arrow('topleft')
 ```
 
 </div>
+
+
+
+
+## https://riatelab.github.io/mapsf/
+
+<center>
+[<img src="img/website.png" width=800px />](https://riatelab.github.io/mapsf/)
+</center>
+
+
+## Vignettes
+<center>
+### [Introduction and examples](https://riatelab.github.io/mapsf/articles/mapsf.html#examples-of-thematic-maps-1)  
+### [How to Export Maps](https://riatelab.github.io/mapsf/articles/web_only/how_to_export_maps.html)  
+### [How to Create Inset Maps](https://riatelab.github.io/mapsf/articles/web_only/how_to_create_inset_maps.html)  
+### [How to Use Themes](https://riatelab.github.io/mapsf/articles/web_only/how_to_use_themes.html)  
+</center>
+
+<!-- ## Alternative Solutions -->
+
+<!-- ### `ggplot2` (Wickham, 2016) <small>+ [`ggspatial`](https://github.com/paleolimbot/ggspatial) (Dunnington, 2018)</small>   -->
+<!-- * A general purpose graphic library -->
+
+<!-- ### [`tmap`](https://github.com/mtennekes/tmap) (Tennekes, 2018)   -->
+<!-- * A mapping library with similar functionalities -->
+<!-- * Uses a different grammar (*à la* `ggplot2`) -->
+<!-- * Allows interactive maps -->
+
+<!-- ### [`cartography`](https://github.com/riatelab/cartography) (Giraud and Lambert, 2016)   -->
+<!-- * `mapsf` predecessor -->
+<!-- * In maintenance mode -->
 
 
 ## Thank You

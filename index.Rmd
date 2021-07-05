@@ -48,7 +48,7 @@ dev.off()
 
 ```{r, echo = FALSE, eval = FALSE, results='hide'}
 library(deepdep)
-dep <- deepdep("mapsf", depth = 8)
+dep <- deepdep("mapsf", depth = 6)
 png("img/deps.png", width  = 700, height = 550)
 plot_dependencies(dep, "circular", same_level = TRUE, reverse = TRUE)
 dev.off()
@@ -69,8 +69,6 @@ mf_map(x = sf_object,
        ...)
 ```
 
-## `mf_map()` {data-background=img/help.png data-background-size=contain}
-
 
 ## Map types
 
@@ -85,24 +83,15 @@ mf_map(x = sf_object,
 </center>
 
 
+##  {data-background=img/help.png data-background-size=contain}
+### `?mf_map()`
+
 ## Map layout
-<div class="columns-2"> 
 
-<img src="img/deco.svg" width=450px />  
-
+<center>
+<img src="img/deco2.svg" width=850px />  
+</center>
  
-```r
-mf_title()
-mf_arrow()
-mf_credits()
-mf_scale() 	
-mf_layout() 
-mf_annotation() 	
-mf_label()
-mf_shadow()
-```
-
-</div>
 
 
 
@@ -143,8 +132,105 @@ mf_arrow('topleft')
 
 </div>
 
+## Pipe(s) {.smaller}
+
+<div class="columns-2">
 
 
+```{r, message = FALSE, results='hide', fig.width = 3.5, fig.height=3.5}
+mf_theme("green", line = 1, cex = 0.8)
+mtq |>
+  mf_map() |>
+  mf_map("POP", "prop")
+mf_title("Population")
+
+library(magrittr)
+mf_theme("agolalight")
+mtq %>% 
+  mf_map() %>%
+  mf_map(c("POP","MED"), "prop_choro") 
+mf_title("Population and Wealth")
+
+```
+
+</div>
+
+## Insets {.smaller}
+
+
+<div class="columns-2">
+```{r, message = FALSE, results='hide', fig.width = 3.5, fig.height=3.5}
+mf_map(mtq)
+mf_inset_on(x = mtq[1, ], cex = .3)
+mf_map(mtq[1, ])
+mf_inset_off()
+
+
+mf_map(mtq)
+mf_inset_on(x = "worldmap", pos = "bottomleft")
+mf_worldmap(x = mtq)
+mf_inset_off()
+```
+</div>
+
+## Themes {.smaller}
+
+
+
+
+<div class="columns-3">
+```{r, message = FALSE, results='hide', fig.width = 2, fig.height=2.7, echo = FALSE}
+mf_theme("default")
+mf_map(mtq)
+mf_title("default")
+
+mf_theme("jsk")
+mf_map(mtq)
+mf_title("jsk")
+
+mf_theme("green")
+mf_map(mtq)
+mf_title("green")
+
+mf_theme("darkula")
+mf_map(mtq)
+mf_title("darkula")
+mf_theme("ink")
+mf_map(mtq)
+mf_title("ink")
+mf_theme("candy")
+mf_map(mtq)
+mf_title("candy")
+
+
+mf_theme("dark")
+mf_map(mtq)
+mf_title("dark")
+
+mf_theme("barcelona")
+mf_map(mtq)
+mf_title("barcelona")
+
+
+
+
+
+mf_theme("nevermind")
+mf_map(mtq)
+mf_title("nevermind")
+
+
+
+mf_theme(bg = "#aad3df", fg = "#393939", mar = c(0,0,0,0), 
+         tab = TRUE, inner = TRUE, line = 1.3, pos = "center", 
+         cex = 1.1, font = 3)
+mf_map(mtq)
+mf_title("Custom")
+
+
+```
+
+</div>
 
 ## https://riatelab.github.io/mapsf/
 
@@ -178,7 +264,7 @@ mf_arrow('topleft')
 
 ## Thank You
 
-<img src="img/logo.png" width=100px />  [riatelab.github.io/mapsf](riatelab.github.io/mapsf)  
+<img src="img/logo.png" width=100px />  [riatelab.github.io/mapsf](https://riatelab.github.io/mapsf)  
 </br>
 <img src="img/prlogo.png" width=50px />  [github.com/rCarto/user2021](https://github.com/rCarto/user2021)  
 </br>

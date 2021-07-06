@@ -1,5 +1,5 @@
 ---
-title: "mapsf, a New Package for Thematic Mapping"
+title: "mapsf, a new package for thematic mapping"
 author: "Timothée Giraud </br> </br> ![](img/logocnrs.svg)</br>"
 date: "useR! 2021 -  2021/07/06"
 output:
@@ -14,8 +14,6 @@ knitr::opts_chunk$set(echo = TRUE, cache=TRUE)
 ```
 
 ## {data-background=img/map2.svg data-background-size=contain}
-
-## {data-background=img/map.svg data-background-size=contain}
 
 ```{r, echo = FALSE, message = FALSE, results='hide'}
 library(mapsf)
@@ -93,6 +91,216 @@ mf_map(x = sf_object,
 </center>
  
 
+## Example {.smaller}
+
+<div class="columns-2">
+```{r, results='hide', message = FALSE, echo = FALSE}
+library(mapsf)
+```
+
+```{r a, eval=FALSE}
+mtq <- mf_get_mtq()
+# 
+# 
+#        
+# 
+# 
+# Plot a choropleth map
+mf_map(x = mtq, var = "MED", type = "choro")
+#         
+#       
+#        
+#        
+#        
+#        
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+#
+```
+```{r a, message = FALSE, results='hide', fig.width = 5, fig.height=5, eval=TRUE, echo=FALSE}
+```
+</div>
+
+## Example {.smaller}
+
+<div class="columns-2">
+```{r b, eval=FALSE}
+mtq <- mf_get_mtq()
+# 
+# 
+#        
+# 
+# 
+# Plot a choropleth map
+mf_map(x = mtq, var = "MED", type = "choro",
+       pal = "Dark Mint", 
+       breaks = "quantile", 
+       nbreaks = 6, 
+       leg_title = "Median Income\n(euros)", 
+       leg_val_rnd = -2, 
+       leg_pos = "topright")     
+#        
+# 
+# 
+# 
+# 
+# 
+# 
+#
+# 
+# 
+```
+```{r b, message = FALSE, results='hide', fig.width = 5, fig.height=5, eval=TRUE, echo=FALSE}
+```
+</div>
+
+
+
+## Example {.smaller}
+
+<div class="columns-2">
+```{r c, eval=FALSE}
+mtq <- mf_get_mtq()
+# 
+# 
+#        
+# 
+# 
+# Plot a choropleth map
+mf_map(x = mtq, var = "MED", type = "choro",
+       pal = "Dark Mint", 
+       breaks = "quantile", 
+       nbreaks = 6, 
+       leg_title = "Median Income\n(euros)", 
+       leg_val_rnd = -2,
+       leg_pos = "topright")     
+# 
+# 
+# 
+#
+# 
+# Plot a layout elements
+mf_title("Wealth in Martinique, 2015")
+mf_credits("T. Giraud\nSources: INSEE & IGN, 2018")
+mf_scale(size = 5)
+mf_arrow('topleft')
+```
+```{r c, message = FALSE, results='hide', fig.width = 5, fig.height=5, eval=TRUE, echo=FALSE}
+```
+</div>
+
+## Example {.smaller}
+
+<div class="columns-2">
+```{r d, eval=FALSE}
+mtq <- mf_get_mtq()
+# Start a map using a theme  
+mf_init(x = mtq, theme = "dark")
+#     
+# 
+# 
+# Plot a choropleth map
+mf_map(x = mtq, var = "MED", type = "choro",
+       pal = "Dark Mint", 
+       breaks = "quantile", 
+       nbreaks = 6, 
+       leg_title = "Median Income\n(euros)", 
+       leg_val_rnd = -2,
+       leg_pos = "topright", 
+       add = TRUE)     
+# 
+# 
+#
+# 
+# Plot a layout elements
+mf_title("Wealth in Martinique, 2015")
+mf_credits("T. Giraud\nSources: INSEE & IGN, 2018")
+mf_scale(size = 5)
+mf_arrow('topleft')
+```
+```{r d, message = FALSE, results='hide', fig.width = 5, fig.height=5, eval=TRUE, echo=FALSE}
+```
+</div>
+
+## Example {.smaller}
+
+<div class="columns-2">
+```{r e, eval=FALSE}
+mtq <- mf_get_mtq()
+# Start a map using a theme  
+mf_init(x = mtq, theme = "dark")
+#     
+# Plot a shadow
+mf_shadow(mtq, col = "grey10", add = TRUE)
+# Plot a choropleth map
+mf_map(x = mtq, var = "MED", type = "choro",
+       pal = "Dark Mint", 
+       breaks = "quantile", 
+       nbreaks = 6, 
+       leg_title = "Median Income\n(euros)", 
+       leg_val_rnd = -2,
+       leg_pos = "topright", 
+       add = TRUE)     
+# 
+# 
+#
+# 
+# Plot a layout elements
+mf_title("Wealth in Martinique, 2015")
+mf_credits("T. Giraud\nSources: INSEE & IGN, 2018")
+mf_scale(size = 5)
+mf_arrow('topleft')
+```
+```{r e, message = FALSE, results='hide', fig.width = 5, fig.height=5, eval=TRUE, echo=FALSE}
+```
+</div>
+
+
+
+## Example {.smaller}
+
+<div class="columns-2">
+```{r f, eval=FALSE}
+mtq <- mf_get_mtq()
+# Start a map using a theme  
+mf_init(x = mtq, theme = "dark")
+#     
+# Plot a shadow
+mf_shadow(mtq, col = "grey10", add = TRUE)
+# Plot a choropleth map
+mf_map(x = mtq, var = "MED", type = "choro",
+       pal = "Dark Mint", 
+       breaks = "quantile", 
+       nbreaks = 6, 
+       leg_title = "Median Income\n(euros)", 
+       leg_val_rnd = -2,
+       leg_pos = "topright", 
+       add = TRUE)     
+# Add an inset world map
+mf_inset_on(x = "worldmap", pos = "right")
+mf_worldmap(mtq, col = "#0E3F5C")
+mf_inset_off()
+# Plot a layout elements
+mf_title("Wealth in Martinique, 2015")
+mf_credits("T. Giraud\nSources: INSEE & IGN, 2018")
+mf_scale(size = 5)
+mf_arrow('topleft')
+```
+
+```{r f, message = FALSE, results='hide', fig.width = 5, fig.height=5, eval=TRUE, echo=FALSE}
+```
+</div>
+
+
+
+
 
 
 ## Examples {.smaller}
@@ -116,6 +324,7 @@ mf_map(x = mtq, var = "MED", type = "choro",
        nbreaks = 6, 
        leg_title = "Median Income\n(euros)", 
        leg_val_rnd = -2,
+       leg_pos = "topright",
        add = TRUE)
 # Add an inset world map
 mf_inset_on(x = "worldmap", pos = "right")

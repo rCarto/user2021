@@ -5,7 +5,7 @@
 
 ## [Slides](https://rcarto.github.io/user2021/)
 
-[![](img/overview.png)](https://rcarto.github.io/user2021/)
+[![](img/overview-0.png)](https://rcarto.github.io/user2021/)
 
 
 ## Abstract

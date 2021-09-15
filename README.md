@@ -1,12 +1,14 @@
 ## [`mapsf`, a New Package for Thematic Mapping](https://rcarto.github.io/user2021/) <img src="img/logo.png" align="right" alt="" width="120"/>
 
 **Timothée Giraud** - CNRS    
-**[useR! 2021](https://user2021.r-project.org/) - 2019/07/06**  
+**[useR! 2021](https://user2021.r-project.org/) - 2021/07/06**  
 
 ## [Slides](https://rcarto.github.io/user2021/)
 
 [![](img/overview-0.png)](https://rcarto.github.io/user2021/)
 
+## [Video](https://youtu.be/8PMF7cBBH7k?t=2621)
+[![Alt text](https://img.youtube.com/vi/8PMF7cBBH7k/0.jpg)](https://youtu.be/8PMF7cBBH7k?t=2621)
 
 ## Abstract
 [`mapsf`](https://riatelab.github.io/mapsf/) helps to design various cartographic representations such as proportional symbols, choropleth or typology maps. It also offers several functions to display layout elements that improve the graphic presentation of maps.
